@@ -101,7 +101,10 @@
   - Игривое Облако  
   - Катана, рассекающая душу  
   - Цепь тысячи миль  
-  - Огнестрельное оружие  
+  - Огнестрельное оружие
+ 
+    - **Вид:** toji style 
+  <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/2a5de080-6ccd-4f7e-b93f-90c08f66bff3/dg67r73-fa25c01b-ae44-44ee-a1f3-57c2d3564941.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiIvZi8yYTVkZTA4MC02Y2NkLTRmN2UtYjkzZi05MGMwOGY2NmJmZjMvZGc2N3I3My1mYTI1YzAxYi1hZTQ0LTQ0ZWUtYTFmMy01N2MyZDM1NjQ5NDEucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.0axPRqw9Yo9GdJdshy2MMZ_fyy8ShY6HSCEVu27BK8c" alt="Персонаж" width="100"/>
 - **Цена:** промокод  
 
 ### 3. Нэви 🛡️
