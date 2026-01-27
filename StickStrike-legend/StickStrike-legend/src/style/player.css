@@ -1,0 +1,46 @@
+#player {}
+
+.player-component {}
+
+.Player-head {
+    color: black;
+    background-color: black;
+}
+
+.Player-body {
+    color: black;
+    background-color: black;
+}
+
+/*=================================================
+=========================---Righr---================
+=================================================*/
+.Player-right-hand {
+    height: 5px;
+    width: 5px;
+    color: black;
+    background-color: black;
+}
+
+.Player-right-leg {
+    color: black;
+    background-color: black;
+}
+
+/*=================================================
+=========================---Left---================
+=================================================*/
+
+.Player-left-hand {
+    height: 5px;
+    width: 5px;
+    color: black;
+    background-color: black;
+}
+
+.Player-left-leg {
+    color: black;
+    background-color: black;
+}
+
+
