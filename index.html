@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/style.css">
+    <title>HELL MENU</title>
+</head>
+<body>
+    <div class="pixel-overlay"></div>
+    
+    <div class="game-menu">
+        <div class="player-profile">
+            <div class="player-title">HELL WALKER</div>
+            <h1 class="player-name">TOJI FUSHIGURO</h1>
+            <div class="character-info">
+                <div class="character-name">DEMON SLAYER</div>
+                <div class="character-level">HELL LEVEL: <span id="level">00</span></div>
+                <div class="stars">SOULS: <span id="souls">00</span></div>
+            </div>
+        </div>
+
+        <div class="menu-center">
+            <a href="./str/game.html" class="play-button">
+                <svg class="play-svg" width="200" height="200" viewBox="0 0 200 200">
+                    <defs>
+                        <linearGradient id="hellGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#8B0000;stop-opacity:1" />
+                            <stop offset="50%" style="stop-color:#B22222;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#FF4500;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <circle cx="100" cy="100" r="90" fill="url(#hellGradient)"/>
+                    <polygon points="80,60 80,140 140,100" fill="#fff"/>
+                </svg>
+            </a>
+        </div>
+
+        <div class="stats-toggle">
+            <button class="toggle-btn" id="statsToggle">
+                <span class="toggle-text">STATISTICS</span>
+                <span class="toggle-arrow">▼</span>
+            </button>
+        </div>
+
+        <div class="stats-section" id="statsSection" style="display: none;">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">💀</div>
+                    <div class="stat-name">DEMONS SLAIN</div>
+                    <div class="stat-value" id="kills">00</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🩸</div>
+                    <div class="stat-name">BLOOD SPILLED</div>
+                    <div class="stat-value" id="blood">00</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🔥</div>
+                    <div class="stat-name">HELL GATES</div>
+                    <div class="stat-value" id="gates">00</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">⏳</div>
+                    <div class="stat-name">BEST TIME</div>
+                    <div class="stat-value" id="time">00:00</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="customize-button">
+            <a href="./str/customize.html" class="custom-link">
+                <div class="custom-text">ARSENAL</div>
+                <div class="arrow">→</div>
+            </a>
+        </div>
+    </div>
+
+    <script src="./script/script.js"></script>
+</body>
+</html>

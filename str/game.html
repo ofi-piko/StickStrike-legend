@@ -1,0 +1,47 @@
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../style/game.css">
+        <title>Document</title>
+    </head>
+
+    <body>
+
+        <div class="game-container">
+            <!-- Пиксельный оверлей -->
+            <div class="pixel-overlay"></div>
+            
+            <!-- Игровое поле -->
+            <div class="game-field" id="gameField"></div>
+            
+            <!-- Игрок -->
+            <div class="player" id="player">
+                <div class="player-shadow"></div>
+            </div>
+            
+            <!-- Джойстик -->
+            <div class="joystick-container" id="joystickContainer">
+                <div class="joystick-base">
+                    <div class="joystick-handle" id="joystickHandle"></div>
+                </div>
+                <div class="joystick-directions">
+                    <div class="direction left">←</div>
+                    <div class="direction right">→</div>
+                </div>
+            </div>
+            
+            <div class="jump-btn" id="jumpBtn">
+                <div class="jump-inner">ПРЫЖОК</div>
+            </div>
+            
+        </div>
+
+
+ 
+        <script src="../script/game.js"></script>
+    </body>
+
+    </html>

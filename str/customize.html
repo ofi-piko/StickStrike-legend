@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style/customize.css">
+    <title>CHARACTERS - HELL MENU</title>
+</head>
+<body>
+    <div class="pixel-overlay"></div>
+    
+    <div class="customize-menu">
+        <div class="back-button">
+            <a href="index.html" class="back-link">
+                <div class="back-arrow">←</div>
+                <div class="back-text">BACK TO MENU</div>
+            </a>
+        </div>
+
+        <div class="customize-header">
+            <h1 class="section-title"> CHARACTER SELECTION </h1>
+            <div class="player-coins">
+                <span class="coins-icon">💰</span>
+                <span class="coins-value" id="coins">00000</span>
+                <span class="gems-icon">💎</span>
+                <span class="gems-value" id="gems">000</span>
+            </div>
+        </div>
+
+        <div class="selected-character-info">
+                    <div class="info-title">SELECTED CHARACTER</div>
+                    <div class="current-character" id="currentCharacter">ЗИРКО</div>
+                    <div class="character-stats">
+                        <div class="stat">TYPE: <span>Melee/Air</span></div>
+                        <div class="stat">DEFENSE: <span>65</span></div>
+                        <div class="stat">ATTACK: <span>80</span></div>
+                        <div class="stat">SPEED: <span>90</span></div>
+                        <div class="stat">MAGIC: <span>75</span></div>
+                    </div>
+                </div>
+
+        <div class="characters-grid">
+            <!-- Зирко -->
+            <div class="character-card free unlocked" data-character="zirko">
+                <div class="character-badge free">FREE</div>
+                <div class="character-image">
+                    <div class="character-icon"></div>
+                </div>
+                <div class="character-name">ЗИРКО</div>
+                <div class="character-type"> Ближний/Воздушный</div>
+                <div class="character-desc">Основной герой для изучения механик</div>
+                <div class="character-abilities">
+                    <div class="ability"> Высокая скорость с магией</div>
+                </div>
+                <button class="select-btn selected">SELECTED</button>
+                <div class="character-price">Started persoin</div>
+            </div>
+
+            <!-- Toji Fushiguro -->
+            <div class="character-card locked" data-character="toji">
+                <div class="character-badge promo">PROMO</div>
+                <div class="character-image">
+                    <div class="character-icon"></div>
+                    <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/2a5de080-6ccd-4f7e-b93f-90c08f66bff3/dg67r73-fa25c01b-ae44-44ee-a1f3-57c2d3564941.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiIvZi8yYTVkZTA4MC02Y2NkLTRmN2UtYjkzZi05MGMwOGY2NmJmZjMvZGc2N3I3My1mYTI1YzAxYi1hZTQ0LTQ0ZWUtYTFmMy01N2MyZDM1NjQ5NDEucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.0axPRqw9Yo9GdJdshy2MMZ_fyy8ShY6HSCEVu27BK8c" 
+                         alt="Toji Fushiguro" class="character-img">
+                </div>
+                <div class="character-name">TOJI FUSHIGURO</div>
+                <div class="character-type">Антагонист/Ассасин</div>
+                <div class="character-desc">Человек без проклятой энергии</div>
+                <div class="character-abilities">
+                    <div class="ability">Меняет оружие на ходу</div>
+                    <div class="ability">Небесное ограничение</div>
+                    <div class="ability">Экстремальная сила</div>
+                    <div class="ability">Запредельная скорость</div>
+                </div>
+                <button class="buy-btn">BUY</button>
+                <div class="character-price">PROMO CODE</div>
+            </div>
+
+            <!-- Нэви -->
+            <div class="character-card locked" data-character="nevi">
+                <div class="character-badge locked">LOCKED</div>
+                <div class="character-image">
+                    <div class="character-icon"></div>
+                </div>
+                <div class="character-name">НЭВИ</div>
+                <div class="character-type">Ближний боец/Танк</div>
+                <div class="character-desc">Живой щит команды</div>
+                <div class="character-abilities">
+                    <div class="ability">Железная броня</div>
+                    <div class="ability">Громовой удар</div>
+                    <div class="ability">Призыв щита</div>
+                </div>
+                <button class="buy-btn">BUY</button>
+                <div class="character-price">12,000</div>
+            </div>
+
+            <!-- Элтор -->
+            <div class="character-card locked" data-character="eltor">
+                <div class="character-badge locked">LOCKED</div>
+                <div class="character-image">
+                    <div class="character-icon"></div>
+                </div>
+                <div class="character-name">ЭЛТОР</div>
+                <div class="character-type">Дальний боец/Маг</div>
+                <div class="character-desc">Мастер магии огня</div>
+                <div class="character-abilities">
+                    <div class="ability">Огненный шар</div>
+                    <div class="ability">Пылающий вихрь</div>
+                    <div class="ability">Щит пламени</div>
+                </div>
+                <button class="buy-btn">BUY</button>
+                <div class="character-price">35,000</div>
+            </div>
+
+            <!-- Скайра -->
+            <div class="character-card locked" data-character="skaira">
+                <div class="character-badge locked">LOCKED</div>
+                <div class="character-image">
+                    <div class="character-icon"></div>
+                </div>
+                <div class="character-name">СКАЙРА</div>
+                <div class="character-type"> Дальний/Воздушный</div>
+                <div class="character-desc">Контролирует поле боя с высоты</div>
+                <div class="character-abilities">
+                    <div class="ability">Вихрь небес</div>
+                    <div class="ability">Невидимый манёвр</div>
+                    <div class="ability">Щит облаков</div>
+                </div>
+                <button class="buy-btn">BUY</button>
+                <div class="character-price"> 580,000</div>
+            </div>
+
+            <!-- Фейна -->
+            <div class="character-card locked" data-character="feyna">
+                <div class="character-badge locked">LOCKED</div>
+                <div class="character-image">
+                    <div class="character-icon"></div>
+                </div>
+                <div class="character-name">ФЕЙНА</div>
+                <div class="character-type"> Дальний/Ассасин</div>
+                <div class="character-desc">Тактический снайпер</div>
+                <div class="character-abilities">
+                    <div class="ability"> Меткий выстрел</div>
+                    <div class="ability">Тень</div>
+                    <div class="ability">Ловушка</div>
+                </div>
+                <button class="buy-btn">BUY</button>
+                <div class="character-price">PROMO CODE</div>
+            </div>
+
+            <!-- Миккаса -->
+            <div class="character-card locked" data-character="mikasa">
+                <div class="character-badge locked">LOCKED</div>
+                <div class="character-image">
+                    <div class="character-icon"></div>
+                </div>
+                <div class="character-name">МИККАСА</div>
+                <div class="character-type"> Ближний/Воздушный</div>
+                <div class="character-desc">Мастер меча и манёвров</div>
+                <div class="character-abilities">
+                    <div class="ability">Удар клинка</div>
+                    <div class="ability">3D манёвр</div>
+                    <div class="ability">Шарф-щит</div>
+                </div>
+                <button class="buy-btn">BUY</button>
+                <div class="character-price">PROMO CODE</div>
+            </div>
+
+            <!-- Аэрион -->
+            <div class="character-card locked" data-character="aerion">
+                <div class="character-badge locked">LOCKED</div>
+                <div class="character-image">
+                    <div class="character-icon"></div>
+                </div>
+                <div class="character-name">АЭРИОН</div>
+                <div class="character-type">Ассасин/Маг поддержки</div>
+                <div class="character-desc">Теневой Проводник</div>
+                <div class="character-abilities">
+                    <div class="ability">Шаг Тени</div>
+                    <div class="ability">Завеса Мрака</div>
+                    <div class="ability">Печать Баланса</div>
+                    <div class="ability">Последний Переход</div>
+                </div>
+                <button class="buy-btn">BUY</button>
+                <div class="character-price">PROMO CODE</div>
+            </div>
+        </div> 
+
+
+        <div class="promo-section">
+            <div class="promo-title">ENTER PROMO CODE</div>
+            <div class="promo-input-container">
+                <input type="text" class="promo-input" placeholder="ENTER CODE" maxlength="12">
+                <button class="promo-submit">ACTIVATE</button>
+            </div>
+            <div class="promo-hint">Codes unlock special characters!</div>
+        </div>
+    </div>
+
+    <script src="../script/customize.js"></script>
+</body>
+</html>

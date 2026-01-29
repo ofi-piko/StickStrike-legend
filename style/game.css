@@ -1,0 +1,356 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    touch-action: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    background: #000;
+    color: #fff;
+    font-family: 'Courier New', monospace;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+}
+
+.game-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(to bottom, #0a0a0a, #1a1a2e);
+}
+
+/* Пиксельный оверлей */
+.pixel-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        repeating-linear-gradient(0deg, 
+            rgba(0, 0, 0, 0.2) 0px, 
+            rgba(0, 0, 0, 0.2) 2px, 
+            transparent 2px, 
+            transparent 4px
+        );
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.5;
+}
+
+/* Игровое поле */
+.game-field {
+    position: absolute;
+    width: 400%;
+    height: 100%;
+    background-image: url('data:image/svg+xml;utf8,<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><rect width="40" height="40" fill="%231a1a2e"/><rect width="40" height="1" y="39" fill="%23333366"/><rect width="1" height="40" x="39" fill="%23333366"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/><circle cx="30" cy="30" r="8" fill="%23336699"/><circle cx="120" cy="80" r="12" fill="%23993366"/><circle cx="180" cy="150" r="10" fill="%23339966"/><rect x="60" y="140" width="20" height="40" fill="%23663399"/></svg>');
+    background-repeat: repeat;
+    background-size: 200px 200px;
+    animation: scrollBackground 60s linear infinite;
+    opacity: 0.7;
+}
+
+@keyframes scrollBackground {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* Игрок */
+.player {
+    position: absolute;
+    width: 120px;
+    height: 180px;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    transition: left 0.1s ease-out;
+    filter: 
+        drop-shadow(0 5px 15px rgba(255, 69, 0, 0.7))
+        drop-shadow(0 0 30px rgba(255, 0, 0, 0.5));
+}
+
+.player::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/2a5de080-6ccd-4f7e-b93f-90c08f66bff3/dg67r73-fa25c01b-ae44-44ee-a1f3-57c2d3564941.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiIvZi8yYTVkZTA4MC02Y2NkLTRmN2UtYjkzZi05MGMwOGY2NmJmZjMvZGc2N3I3My1mYTI1YzAxYi1hZTQ0LTQ0ZWUtYTFmMy01N2MyZDM1NjQ5NDEucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.0axPRqw9Yo9GdJdshy2MMZ_fyy8ShY6HSCEVu27BK8c');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.player-shadow {
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 20px;
+    background: radial-gradient(ellipse, rgba(0,0,0,0.5), transparent 70%);
+    border-radius: 50%;
+    filter: blur(5px);
+}
+
+/* Джойстик */
+.joystick-container {
+    position: absolute;
+    bottom: 120px;
+    left: 50px;
+    z-index: 200;
+}
+
+.joystick-base {
+    width: 120px;
+    height: 120px;
+    background: rgba(139, 0, 0, 0.3);
+    border: 3px solid #8B0000;
+    border-radius: 50%;
+    position: relative;
+    box-shadow: 
+        inset 0 0 20px rgba(0, 0, 0, 0.5),
+        0 5px 15px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+}
+
+.joystick-handle {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(145deg, #FF4500, #8B0000);
+    border: 3px solid #FFD700;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    box-shadow: 
+        0 4px 10px rgba(0, 0, 0, 0.5),
+        inset 0 2px 4px rgba(255, 255, 255, 0.2);
+    transition: all 0.1s;
+}
+
+.joystick-directions {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 140px;
+    height: 140px;
+    pointer-events: none;
+}
+
+.direction {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: rgba(139, 0, 0, 0.5);
+    border: 2px solid #FF4500;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #FFD700;
+    opacity: 0.7;
+}
+
+.direction.left {
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.direction.right {
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Кнопка прыжка */
+.jump-btn {
+    position: absolute;
+    bottom: 120px;
+    right: 50px;
+    width: 140px;
+    height: 140px;
+    z-index: 200;
+    cursor: pointer;
+}
+
+.jump-inner {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(145deg, #006400, #004400);
+    border: 3px solid #00FF00;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #90EE90;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    box-shadow: 
+        0 6px 20px rgba(0, 255, 0, 0.3),
+        inset 0 2px 10px rgba(255, 255, 255, 0.1);
+    transition: all 0.1s;
+    padding: 10px;
+    text-align: center;
+}
+
+.jump-btn:active .jump-inner {
+    transform: scale(0.95);
+    background: linear-gradient(145deg, #004400, #006400);
+    box-shadow: 
+        0 2px 10px rgba(0, 255, 0, 0.2),
+        inset 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Статистика */
+.stats-panel {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    border: 2px solid #8B0000;
+    padding: 15px;
+    border-radius: 10px;
+    min-width: 200px;
+    backdrop-filter: blur(5px);
+}
+
+.stat {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+
+.stat:last-child {
+    margin-bottom: 0;
+}
+
+.stat-label {
+    color: #FFA07A;
+}
+
+.stat-value {
+    color: #FFD700;
+    font-weight: bold;
+    font-variant-numeric: tabular-nums;
+}
+
+/* Инструкция */
+.instruction {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    color: #FFA07A;
+    text-align: center;
+    border: 1px solid #8B0000;
+    backdrop-filter: blur(5px);
+}
+
+/* Анимации */
+@keyframes jump {
+    0%, 100% { 
+        bottom: 100px;
+        transform: translateX(-50%) scale(1);
+    }
+    50% { 
+        bottom: 250px;
+        transform: translateX(-50%) scale(1.05);
+    }
+}
+
+.player.jumping {
+    animation: jump 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@keyframes run {
+    0%, 100% { 
+        transform: translateX(-50%) translateY(0px);
+    }
+    50% { 
+        transform: translateX(-50%) translateY(-5px);
+    }
+}
+
+.player.running {
+    animation: run 0.3s infinite ease-in-out;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .player {
+        width: 80px;
+        height: 120px;
+        bottom: 150px;
+    }
+    
+    .joystick-container {
+        bottom: 80px;
+        left: 30px;
+        transform: scale(0.8);
+    }
+    
+    .jump-btn {
+        bottom: 80px;
+        right: 30px;
+        transform: scale(0.8);
+    }
+    
+    .stats-panel {
+        top: 10px;
+        left: 10px;
+        padding: 10px;
+        min-width: 160px;
+        font-size: 0.8rem;
+    }
+    
+    .instruction {
+        bottom: 20px;
+        font-size: 0.8rem;
+        padding: 8px 15px;
+        width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    .player {
+        width: 60px;
+        height: 90px;
+        bottom: 180px;
+    }
+    
+    .joystick-container {
+        bottom: 60px;
+        left: 20px;
+        transform: scale(0.7);
+    }
+    
+    .jump-btn {
+        bottom: 60px;
+        right: 20px;
+        transform: scale(0.7);
+    }
+    
+    .stats-panel {
+        transform: scale(0.8);
+        transform-origin: top left;
+    }
+}
